@@ -3,8 +3,6 @@
 set -eu
 
 USER="$1"
-TMPDIR=$(mktemp -d)
-trap "rm -rf ${TMPDIR}" QUIT EXIT INT
 
 echo ":: Creating non-root user"
 if ! grep "${USER}" /etc/passwd >/dev/null 2>&1; then
