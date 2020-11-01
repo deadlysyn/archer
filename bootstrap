@@ -1,0 +1,119 @@
+#!/bin/sh
+#
+# Run this as root via curl before inside arch-chroot.
+# Goal is to fully automate install of ABS packages.
+# Needs (short) hostname to configure networking.
+#
+# ./bootstrap <hostname> <manifests...>
+#
+# Example:
+#
+# ./bootstrap monolith base bloat management
+
+set -eu
+
+HOSTNAME="$1"
+shift 1
+MANIFESTS=$@
+MANIFEST_URL="https://raw.githubusercontent.com/deadlysyn/dotfiles/master/scripts/manifests"
+PM="pacman --noconfirm --noprogressbar -Sq"
+TMPDIR=$(mktemp -d)
+trap "rm -rf ${TMPDIR}" QUIT EXIT INT
+
+umask 022
+
+echo ":: Updating mirrorlist"
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+${PM} pacman-contrib
+curl -s "https://www.archlinux.org/mirrorlist/?country=US&protocol=https&use_mirror_status=on" \
+  | sed -e 's/^#Server/Server/' -e '/^#/d' \
+  | rankmirrors -n 5 - >/etc/pacman.d/mirrorlist
+
+pacman -Sqy
+for m in $MANIFESTS; do
+  echo ":: Processing manifest ${m}.abs"
+  curl "${MANIFEST_URL}/${m}.abs" -fso "${TMPDIR}/${m}.abs"
+  for p in $(cat "${TMPDIR}/${m}.abs" 2>/dev/null); do
+    if ! pacman -Qq "${p}" >/dev/null 2>&1; then
+      echo ":: Installing ${p}"
+      ${PM} "${p}"
+    fi
+  done
+done
+
+# https://wiki.archlinux.org/index.php/Microcode
+if grep Intel /proc/cpuinfo >/dev/null 2>&1; then
+  echo ":: Installing INTEL microcode"
+  ${PM} intel-ucode
+fi
+if grep AMD /proc/cpuinfo >/dev/null 2>&1; then
+  echo ":: Installing AMD microcode"
+  ${PM} amd-ucode
+fi
+
+echo ":: Setting TZ"
+ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+hwclock --systohc
+
+echo ":: Setting locale"
+sed -i'' 's/^#\(en_US.UTF-8 UTF-8\)/\1/' /etc/locale.gen
+locale-gen
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+
+echo ":: Configuring network"
+echo "$HOSTNAME" > /etc/hostname
+cat >/etc/hosts <<EOF
+127.0.0.1    localhost
+::1          localhost
+127.0.1.1    ${HOSTNAME}.localdomain ${HOSTNAME}
+EOF
+# https://wiki.archlinux.org/index.php/Iwd#Optional_configuration
+mkdir -p /etc/iwd
+cat >/etc/iwd/main.conf <<EOF
+[General]
+EnableNetworkConfiguration=true
+NameResolvingService=systemd
+EOF
+systemctl enable iwd.service
+systemctl enable systemd-resolved
+systemctl enable ufw
+ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+
+# https://wiki.archlinux.org/index.php/Systemd-boot#Installation
+if [ -e /sys/firmware/efi/efivars ]; then
+  echo ":: Installing boot manager"
+  bootctl install
+  OPTS=$(blkid | awk '/ext4/ {print "options root="$NF" rootfstype=ext4 add_efi_memmap"}' 2>/dev/null)
+  grep Intel /proc/cpuinfo >/dev/null 2>&1 && MCODE="intel"
+  grep AMD /proc/cpuinfo >/dev/null 2>&1 && MCODE="amd"
+  cat >/boot/loader/loader.conf <<EOF
+default      arch.conf
+timeout      2
+editor       no
+console-mode max
+EOF
+    cat >/boot/loader/entries/arch.conf <<EOF
+title   Arch Linux
+linux   /vmlinuz-linux
+initrd  /${MCODE}-ucode.img
+initrd  /initramfs-linux.img
+${OPTS}
+EOF
+else
+  echo "!! Not booted in UEFI mode"
+  exit 1
+fi
+
+# https://wiki.archlinux.org/index.php/Solid_state_drive#Periodic_TRIM
+echo ":: Enabling fstrim"
+systemctl enable fstrim.timer
+
+cat <<EOF
+=================================================================
+ Set root password then reboot...
+ If boot fails, just chroot from USB to fix as needed.
+=================================================================
+EOF
+
+passwd
+

@@ -1,0 +1,26 @@
+#!/bin/sh
+
+set -eu
+
+USER="$1"
+TMPDIR=$(mktemp -d)
+trap "rm -rf ${TMPDIR}" QUIT EXIT INT
+
+echo ":: Creating non-root user"
+if ! grep "${USER}" /etc/passwd >/dev/null 2>&1; then
+  useradd -m -G wheel -s /bin/zsh "${USER}"
+cat <<EOF
+=================================================================
+ Enter password for ${USER}...
+=================================================================
+EOF
+  passwd "${USER}"
+  sed -i'' 's/# \(%wheel ALL=(ALL) NOPASSWD: ALL\)/\1/' /etc/sudoers
+fi
+
+cat <<EOF
+=================================================================
+ Login as ${USER}...
+=================================================================
+EOF
+

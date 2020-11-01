@@ -1,0 +1,53 @@
+#!/bin/sh
+#
+# Run this locally via git clone after you've bootstrapped.
+# Yay is best ran interactively. The goal of this script
+# is less hands-off automation and more about consistency.
+
+set -eu
+
+USER=$(id -un)
+MANIFESTS=$@
+
+if [ $# -lt 2 ]; then
+  echo "USAGE: $(basename $0) <username> <manifests...>"
+  exit 1
+fi
+
+if [ "${USER}" == root ]; then
+  echo "!! Don't run as root"
+  exit 1
+fi
+
+if [ ! -d /opt/yay-git ]; then
+  echo ":: Installing yay"
+  cd /opt
+  git clone https://aur.archlinux.org/yay-git.git
+  chown -R "${USER}:${USER}" yay-git
+  cd yay-git
+  makepkg -si
+fi
+
+# Populate for future use...
+mkdir -p "${HOME}/.gnupg"
+chmod 700 "${HOME}/.gnupg"
+cat > "${HOME}/.gnupg/gpg.conf" <<EOF
+no-greeting
+no-permission-warning
+lock-never
+keyserver-options timeout=10
+keyserver-options import-clean
+keyserver-options no-self-sigs-only
+keyserver https://pgp.mit.edu
+EOF
+
+for m in $MANIFESTS; do
+  echo ":: Processing manifest ${m}"
+  for p in $(cat "${m}" 2>/dev/null); do
+    if ! yay -Qq "${p}" >/dev/null 2>&1; then
+      echo ":: Installing ${p}"
+      yay -S "${p}"
+    fi
+  done
+done
+
