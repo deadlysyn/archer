@@ -23,7 +23,8 @@ After installing Arch a handful of times I decided to automate more of
 the process. Aside from having complete control, the great thing about Arch
 is the wiki. It's a wonderful resource, but can be overwhelming. I end up following
 2^32 links and have 100 tabs open just to get through a basic install
-(sincere thanks to all doc writers, this is a personal problem not you).
+(sincere thanks to all doc writers, this is a personal problem vs any fault
+of yours).
 
 ## What
 
