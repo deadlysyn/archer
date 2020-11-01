@@ -45,8 +45,8 @@ whether Intel- or AMD-based.
 
 I wasn't aiming for "the most minimal possible", since the ultimate
 goal was consistent usability. Some choices could undoubtedly be replaced
-with slimmer alternatives or eliminated entirely. The base install, for
-example, includes things like an image viewer and PDF reader. I found
+with slimmer alternatives or eliminated entirely. For example, the base install
+ includes things like an image viewer and PDF reader. I found
 having these available helpful in normal life. To minimize impact,
 I chose the leanest alternatives I could find with reasonable functionality
 ([sxiv](https://github.com/muennich/sxiv) and
