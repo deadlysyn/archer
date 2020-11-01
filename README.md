@@ -1,5 +1,17 @@
 # Opinionated Arch Install Helper
 
+- [Why](#why)
+- [What](#what)
+- [Thought Process](#thought-process)
+- [Choices](#choices)
+- [Install](#install)
+  - [Bootstrapping](#bootstrapping)
+  - [Finalization](#finalization)
+  - [Configuration](#configuration)
+  - [Manual Steps](#manual-steps)
+  - [TODO](#todo)
+- [References](#references)
+
 ## Why
 
 NOTE: The [official guide](https://wiki.archlinux.org/index.php/installation_guide)
@@ -17,19 +29,72 @@ overwhelming. For someone a bit ADHD/dyslexic like me I end up following
 ## What
 
 This guide attempts to condense the Arch install guide and several pages
-it links to so my "typical install" is easier to follow "top down" with
-several steps automated. This may turn into a more full featured script
-that supports additional options (PRs welcome), but as a starting point I
-just semi-automated my typical install.
+it links to so my typical install is easier to follow top down with.
+This may turn into a more full featured script that supports additional
+options (PRs welcome), but as a starting point I just semi-automated my
+typical install.
 
-Typical for me means getting wifi enabled, installing a consistent set of
-base packages, adding on some heavyweight items as needed, and making minor
-tweaks based on laptop/desktop/intel/amd. I assume GPT/UEFI partitioning,
-and try to minimize bloat (e.g. systemd-boot since it's OOB vs adding GRUB,
-iwd/iwctl vs networkmanager and wpa_supplicant, etc.). You might have
-different choices, but can easily add those at the end. Other things like
-locale or timezone preferences currently require editing the scripts
-(again, please read them before running -- they are just shell for a reason).
+## Thought Process
+
+My goal was consistency (without needing to remember what utilities to
+track down on each install) and a "minimal but not too minimal" install.
+I also wanted to be able to run the same install process on an old
+Thinkpad or a modern desktop and get reasonably adjusted defaults,
+whether Intel- or AMD-based.
+
+I wasn't aiming for "the most minimal possible", since the ultimate
+goal was consistent usability. Some choices could undoubtedly be replaced
+with slimmer alternatives or eliminated entirely. The base install, for
+example, includes things like an image viewer and PDF reader. I found
+having these available to be helpful in normal life. To minimize impact,
+I chose the leanest alternatives I could find with reasonable functionality
+([sxiv](https://github.com/muennich/sxiv) and
+[zathura](https://pwmt.org/projects/zathura) in these specific cases).
+You might have different chocies, and these can be swapped out easily by editing
+manifests before install or hand tweaking later.
+
+In larger things I only wanted some places (desktop vs laptop), I split
+out separate manifests so they can be selectively included. Again you 
+are free to have different choices and even I find myself moving more "base"
+things into "bloat" over time. Examples in this category are
+[LibreOffice](https://www.libreoffice.org), [gimp](https://www.gimp.org),
+and even [picom](https://wiki.archlinux.org/index.php/Picom). While I
+typically pull these in, they are often hundreds of megabytes with
+a plethora of dependencies so I wanted it to be easy to exclude them (e.g.
+just use base vs base + bloat manifests).
+
+## Choices
+
+For any who care, these are some choices I've made and reasoning behind them.
+Thsee are strong opinions weakly held, so I reserve the right to change my mind.
+
+Wired is nice and fast, but modern wifi is fast enough for me and useful
+while roaming. I've tried to ensure wifi works on first boot. To adhere to
+a minimalist approach, I went with [iwd](https://wiki.archlinux.org/index.php/Iwd)
+(vs networkmanager, wpa_supplicant and dhclient). I thought that would
+be a hard choice, but it is well documented and capable. It integrates
+nicely with
+[systemd-netword](https://wiki.archlinux.org/index.php/Systemd-networkd) and
+[systemd-resolved](https://wiki.archlinux.org/index.php/Systemd-resolved).
+
+Speaking of [systemd])(https://wiki.archlinux.org/index.php/Systemd), I
+was never a fan. I didn't object because it wasn't a solid init system,
+or because SysV init was good enough (I grew up on SysV init, but everything
+needs to evolve over time). My objection was softer, in that systemd's
+"everything and the kitchen sink" approach clearly violates
+[the UNIX philosophy](https://en.wikipedia.org/wiki/Unix_philosophy).
+
+For those who argue "you aren't forced to use anything" -- true, but
+if you want to avoid systemd entirely it limits your distro choices
+(I wanted [Arch](https://archlinux.org) vs
+[Artix](https://artixlinux.org) or [Void](https://voidlinux.org)),
+requires extra work to disable, and includes bloat you don't need
+if swapping components. As a result, since Arch uses systemd, I decided
+to go all in and drink the Koolaid. This includes using
+[systemd-boot](https://wiki.archlinux.org/index.php/Systemd-boot)
+rather than GRUB, systemd-resolved vs resolveconf, and similar choices.
+Each of the alternatives are valid, but require pulling in additional
+dependencies and effectively working around vs with Arch's choices as a distro.
 
 ## Bootstrapping
 
@@ -111,6 +176,7 @@ will symlink configs for bspwm, sxhkd, polybar, etc. into home.
 - Consider condensing ABS entries using groups and meta packages
 - Prune unnecessary xorg components
 - Better automation of yay installs
+- Re-audit all packages for more minimal alternatives
 
 ## References
 
