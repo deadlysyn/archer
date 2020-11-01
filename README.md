@@ -65,7 +65,7 @@ a plethora of dependencies so I wanted it to be easy to exclude them.
 ## Choices
 
 For any who care, these are some choices I've made and reasoning behind them.
-Thsee are strong opinions weakly held, so I reserve the right to change my mind.
+These are strong opinions weakly held, so I reserve the right to change my mind.
 
 Wired is nice and fast, but modern wifi is fast enough for me and useful
 while roaming. I've tried to ensure wifi works on first boot. To adhere to
@@ -102,6 +102,56 @@ Each of the alternatives are valid, but require pulling in additional
 dependencies and effectively working around vs with Arch's choices as a distro.
 In the end this path was smooth thanks to Arch's documentation, but
 in you might need to adjust based on your requirements.
+
+In terms of "desktop environments", whatever that means, I've again tried to
+eliminate bloat. To me (we all have opinions), these "environments" represent
+a systemd-class problem (lots of choices made for me which become irritating after
+prolonged use but are so entangled it's difficult to use only the parts you need).
+This repo enables a slim window manager ([bspwm](https://github.com/baskerville/bspwm))
+vs full blown desktop environment. Lightweight tools including
+[sxhkd](https://github.com/baskerville/sxhkd) and [polybar](https://github.com/polybar/polybar)
+are pulled in to round out the experience. Ultimately, this implies
+a preference for a tiling workflow with VIM-like navitation. If you follow
+this end to end, `Super-F1` provides a list of default keybindings.
+
+While no organization is perfect, philosophically I align more with Firefox
+than other popular browsers. I've tried a handful of minimal browsers
+including [Midori](https://astian.org/en/midori-browser),
+[qutebrowser](https://www.qutebrowser.org),
+and [surf](https://surf.suckless.org)
+but been unimpressed with performance or features. If you haven't,
+give these a spin and decide for yourself.
+
+I've come to the conclusion the modern web is bloat, and requires a bloated
+browser to be of much use. While Firefox fulfills that need for me, my
+day job also requires specific plugins which only work with Chromium based
+browsers. You certainly don't want to run Chrome and provide deep
+analytics to a profiteering giant, but there are alternatives including
+[ungoogled-chromium])(https://aur.archlinux.org/packages/ungoogled-chromium)
+and [Brave](https://aur.archlinux.org/packages/brave). I initially balked at Brave
+since it monetization aspects, but you can disable everything unsavory
+(for now) and the way it natively supports HTTPS redirects and ad blocking
+eliminate the need for some plugins.
+
+In the end I decided to
+[benchmark a handful of popular browsers](#tbd)
+on my hardware and let the numbers decide. I encourage you to do
+the same. My number-driven choices are embedded in default configuration
+when using this install process, but can be easily swapped out.
+
+Over the years I noticed myself using more and more Electron apps. Spotify,
+Slack, VS Code (yes I went there)... I didn't think much about it,
+mostly accepting the bloat. As part of this project I decided to rethink
+my choices. While not perfect, and accompanied by a learning curve, I've
+been moving to CLI-based replacements. This includes
+[spotify-tui](https://github.com/Rigellute/spotify-tui),
+[wee-slack](https://github.com/wee-slack/wee-slack), going back to VIM
+(or [vscodium](https://aur.archlinux.org/packages/vscodium-bin) if you must)
+and even swapping things like
+[pavucontrol](https://www.archlinux.org/packages/extra/x86_64/pavucontrol)
+for [pulsemixer])().
+After initial adjustment you end up with the same or more functionality
+that works equally well on hardware of any age.
 
 ## Bootstrapping
 
