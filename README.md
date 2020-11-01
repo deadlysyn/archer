@@ -98,6 +98,8 @@ to go all in and drink the Koolaid. This includes using
 rather than GRUB, systemd-resolved vs resolveconf, and similar choices.
 Each of the alternatives are valid, but require pulling in additional
 dependencies and effectively working around vs with Arch's choices as a distro.
+In the end this path was smooth thanks to Arch's documentation, but
+in you might need to adjust based on your requirements.
 
 ## Bootstrapping
 
