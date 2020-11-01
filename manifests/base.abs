@@ -424,7 +424,6 @@ webrtc-audio-processing
 which
 wireless-regdb
 wireless_tools
-xautolock
 xcb-proto
 xcb-util
 xcb-util-cursor
@@ -493,6 +492,7 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 xorgproto
+xss-lock
 xxhash
 xz
 zathura
