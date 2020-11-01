@@ -70,19 +70,19 @@ for a reason).
   - `genfstab -U /mnt >> /mnt/etc/fstab`
 - Bootstrap
   - `arch-chroot /mnt`
-  - `curl -s https://raw.githubusercontent.com/deadlysyn/dotfiles/master/scripts/bootstrap | bash -s <manifests...>`
-  - manifests are ABS package lists ([files with abs suffix](https://github.com/deadlysyn/dotfiles/tree/master/scripts/manifests))
+  - `curl -s https://raw.githubusercontent.com/deadlysyn/arch-helper/main/bootstrap | bash -s <manifests...>`
+  - manifests are ABS package lists ([files with abs suffix](https://github.com/deadlysyn/arch-helper/tree/main/manifests))
 - Reboot (make sure boot manager works)
 
 ## Finalization
 
 Login as root, then configure a local user and get AUR packages installed.
 
-- `curl -s https://raw.githubusercontent.com/deadlysyn/dotfiles/master/scripts/usersetup | bash -s <username>`
+- `curl -s https://raw.githubusercontent.com/deadlysyn/arch-helper/main/usersetup | bash -s <username>`
 - Logout of root and back in as local user
-- `mkdir ~/src;cd ~/src;git clone https://github.com/deadlysyn/dotfiles.git`
+- `mkdir ~/src;cd ~/src;git clone https://github.com/deadlysyn/arch-helper.git`
 - `cd ~/src/dotfiles/scripts;./yaystrap <manifests...>`
-  - manifests are AUR package lists ([files with aur suffix](https://github.com/deadlysyn/dotfiles/tree/master/scripts/manifests))
+  - manifests are AUR package lists ([files with aur suffix](https://github.com/deadlysyn/arch-helper/tree/main/manifests))
 
 ## Configuration
 
