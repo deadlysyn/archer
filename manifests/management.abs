@@ -1,4 +1,9 @@
 ansible
 aws-vault
+jq
+nmap
+oniguruma
+openbsd-netcat
 openvpn
+tcpdump
 terraform

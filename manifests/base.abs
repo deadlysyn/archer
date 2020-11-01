@@ -115,7 +115,6 @@ iso-codes
 iwd
 jack
 jansson
-jq
 js78
 json-c
 json-glib
@@ -289,14 +288,11 @@ mtdev
 ncurses
 neovim
 nettle
-nmap
 noto-fonts
 noto-fonts-emoji
 npth
 nspr
 nss
-oniguruma
-openbsd-netcat
 openjpeg2
 openssh
 openssl
@@ -403,7 +399,6 @@ systemd-libs
 systemd-resolvconf
 systemd-sysvcompat
 tar
-tcpdump
 tdb
 texinfo
 the_silver_searcher
