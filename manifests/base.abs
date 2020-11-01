@@ -390,6 +390,7 @@ sed
 shadow
 shared-mime-info
 slang
+slock
 sound-theme-freedesktop
 speexdsp
 sqlite
@@ -428,6 +429,7 @@ webrtc-audio-processing
 which
 wireless-regdb
 wireless_tools
+xautolock
 xcb-proto
 xcb-util
 xcb-util-cursor
@@ -496,8 +498,6 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 xorgproto
-xsecurelock
-xss-lock
 xxhash
 xz
 zathura
