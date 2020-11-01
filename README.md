@@ -32,7 +32,8 @@ This project attempts to condense the Arch install guide and several pages
 it links to so my typical install is easier to follow top down.
 This could become more full featured and support additional
 options (PRs welcome), but as a starting point I just semi-automated my
-typical install.
+typical install. Depending on your needs, this might save you time
+as well or serve as a starting point for automating your own preferences.
 
 ## Thought Process
 
