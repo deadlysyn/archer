@@ -138,6 +138,10 @@ In the end I decided to
 on my hardware and let the numbers decide. I encourage you to do
 the same. My number-driven choices are embedded in default configuration
 when using this install process, but can be easily swapped out.
+Regardless of your choice, change your default search to something like
+[Startpage](https://startpage.com),
+[Qwant](https://qwant.com), or
+[Searx])(https://searx.me).
 
 Over the years I noticed myself using more and more Electron apps. Spotify,
 Slack, VS Code (yes I went there)... I didn't think much about it,
@@ -219,21 +223,25 @@ will symlink configs for bspwm, sxhkd, polybar, etc. into home.
   - `cd dotfiles/linux`
   - `../install <packages...>`
 
-## Still Manual
+## Manual Steps
 
-- Enable sshd (might not want on all machines)
+These items are currently left as manual since they can vary from
+machine to machine or user to user.
+
+- [UFW](https://wiki.archlinux.org/index.php/Uncomplicated_Firewall) is enabled but nothing allowed. `ufw allow 22/tcp`, etc as needed.
+- Enable sshd if you want remote SSH connectivity. Only allow key-based auth.
 - Setup SSH config/keys (private data)
-- Install locally built bins
-  - cw
-  - lf
-  - ...
+- Browser plugins (mostly handled by sync)
+- Install locally built tools (I've had better luck with local builds for these)
+  - [awscli](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html)
+  - [cw](https://github.com/lucagrulla/cw)
+- spotifyd/sptify-tui are installed but not configured or enabled. Edit `~/.config/spotifyd/spotifyd.conf` and `systemctl --user enable spotifyd`.
 
 ## TODO
 
 - Consider condensing ABS entries using groups and meta packages
 - Prune unnecessary xorg components
 - Better automation of yay installs
-- Re-audit all packages for more minimal alternatives
 
 ## References
 
