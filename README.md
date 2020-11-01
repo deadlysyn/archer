@@ -129,7 +129,7 @@ browsers. You certainly don't want to run Chrome and provide deep
 analytics to a profiteering giant, but there are alternatives including
 [ungoogled-chromium](https://aur.archlinux.org/packages/ungoogled-chromium)
 and [Brave](https://aur.archlinux.org/packages/brave). I initially balked at Brave
-since it monetization aspects, but you can disable everything unsavory
+due to monetization aspects, but you can disable everything unsavory
 (for now) and the way it natively supports HTTPS redirects and ad blocking
 eliminate the need for some plugins.
 
