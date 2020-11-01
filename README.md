@@ -209,7 +209,7 @@ Login as root, then configure a local user and get AUR packages installed.
 - `curl -s https://raw.githubusercontent.com/deadlysyn/arch-helper/main/usersetup | bash -s <username>`
 - Logout of root and back in as local user
 - `mkdir ~/src;cd ~/src;git clone https://github.com/deadlysyn/arch-helper.git`
-- `cd ~/src/dotfiles/scripts;./yaystrap <manifests...>`
+- `cd ~/src/arch-helper;./yaystrap <manifests...>`
   - manifests are AUR package lists ([files with aur suffix](https://github.com/deadlysyn/arch-helper/tree/main/manifests))
 
 ## Configuration
