@@ -141,7 +141,7 @@ when using this install process, but can be easily swapped out.
 Regardless of your choice, change your default search to something like
 [Startpage](https://startpage.com),
 [Qwant](https://qwant.com), or
-[Searx])(https://searx.me).
+[Searx](https://searx.me).
 
 Over the years I noticed myself using more and more Electron apps. Spotify,
 Slack, VS Code (yes I went there)... I didn't think much about it,
@@ -153,7 +153,7 @@ been moving to CLI-based replacements. This includes
 (or [vscodium](https://aur.archlinux.org/packages/vscodium-bin) if you must)
 and even swapping things like
 [pavucontrol](https://www.archlinux.org/packages/extra/x86_64/pavucontrol)
-for [pulsemixer])(https://github.com/GeorgeFilipkin/pulsemixer).
+for [pulsemixer](https://github.com/GeorgeFilipkin/pulsemixer).
 After initial adjustment you end up with the same or more functionality
 that works equally well on hardware of any age.
 
