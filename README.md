@@ -1,33 +1,35 @@
 # Opinionated Arch Install Helper
 
+## Why
+
 NOTE: The [official guide](https://wiki.archlinux.org/index.php/installation_guide)
-is authoritative. If something here doesn't work check that. Feel free to open a
-PR if something can be better. Also check [References](references). **Read the
-scripts before running!**
+is authoritative. If something here doesn't work, fall back to that. Feel free
+to open a PR if something can be better. Also check [References](references).
+**Read the scripts before running!**
 
-After installing Arch a handful of times around the house I decided to take
-some time and automate more of the process. The great thing about Arch
-aside from having complete control is the wiki. It's a wonderful resource,
-but can be overwhelming. For someone a bit ADHD/Dyslexic like me I end up
-following 2^32 links and have 100 tabs open just to get through a basic
-install (sincere thanks to all the doc writers, this is a personal problem
-not you).
+After installing Arch a handful of times I decided to take some time and
+automate more of the process. The great thing about Arch aside from having
+complete control is the wiki. It's a wonderful resource, but can be 
+overwhelming. For someone a bit ADHD/dyslexic like me I end up following
+2^32 links and have 100 tabs open just to get through a basic install
+(sincere thanks to all doc writers, this is a personal problem not you).
 
-This guide attempts to condense the install doc and several docs it links
-to so my "typical case" is easier to follow "top down" with as much as
-possible automated. This may turn into a more full featured script that
-supports additional options (PRs welcome), but as a starting
-point I just attempted to semi-automate my "typical" install.
+## What
 
-Typical for me means getting wifi enabled, installing a similar set of base
-packages, adding on some more heavyweight items as needed, and making minor
-tweaks based on laptop/desktop/intel/amd. I assume GPT/UEFI
-partitioning, and try to minimize bloat (e.g. systemd-boot since it's OOB
-vs adding GRUB, iwd/iwctl vs networkmanager and wpa_supplicant, etc.).
-You might have different choices, but can easily add those at the end.
-Other things like locale or timezone preferences currently require editing
-the scripts (again, please read them before running -- they are just shell
-for a reason).
+This guide attempts to condense the Arch install guide and several pages
+it links to so my "typical install" is easier to follow "top down" with
+several steps automated. This may turn into a more full featured script
+that supports additional options (PRs welcome), but as a starting point I
+just semi-automated my typical install.
+
+Typical for me means getting wifi enabled, installing a consistent set of
+base packages, adding on some heavyweight items as needed, and making minor
+tweaks based on laptop/desktop/intel/amd. I assume GPT/UEFI partitioning,
+and try to minimize bloat (e.g. systemd-boot since it's OOB vs adding GRUB,
+iwd/iwctl vs networkmanager and wpa_supplicant, etc.). You might have
+different choices, but can easily add those at the end. Other things like
+locale or timezone preferences currently require editing the scripts
+(again, please read them before running -- they are just shell for a reason).
 
 ## Bootstrapping
 
@@ -93,7 +95,7 @@ will symlink configs for bspwm, sxhkd, polybar, etc. into home.
 - While logged in as local user...
   - `git clone git@github.com:deadlysyn/dotfiles.git`
   - `cd dotfiles/linux`
-  - `../scripts/install <packages...>`
+  - `../install <packages...>`
 
 ## Still Manual
 
