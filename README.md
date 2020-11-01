@@ -149,7 +149,7 @@ been moving to CLI-based replacements. This includes
 (or [vscodium](https://aur.archlinux.org/packages/vscodium-bin) if you must)
 and even swapping things like
 [pavucontrol](https://www.archlinux.org/packages/extra/x86_64/pavucontrol)
-for [pulsemixer])().
+for [pulsemixer])(https://github.com/GeorgeFilipkin/pulsemixer).
 After initial adjustment you end up with the same or more functionality
 that works equally well on hardware of any age.
 
