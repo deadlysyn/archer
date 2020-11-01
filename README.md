@@ -73,7 +73,7 @@ a minimalist approach, I went with [iwd](https://wiki.archlinux.org/index.php/Iw
 (vs networkmanager, wpa_supplicant and dhclient). I thought that would
 be a hard choice, but it is well documented and capable. It integrates
 nicely with
-[systemd-netword](https://wiki.archlinux.org/index.php/Systemd-networkd) and
+[systemd-networkd](https://wiki.archlinux.org/index.php/Systemd-networkd) and
 [systemd-resolved](https://wiki.archlinux.org/index.php/Systemd-resolved).
 This also meant dropping [nm-applet](https://aur.archlinux.org/packages/network-manager-applet-git)
 which served me well for years but is a bit bloated. `iwctl` can
@@ -101,7 +101,7 @@ rather than GRUB, systemd-resolved vs resolveconf, and similar choices.
 Each of the alternatives are valid, but require pulling in additional
 dependencies and effectively working around vs with Arch's choices as a distro.
 In the end this path was smooth thanks to Arch's documentation, but
-in you might need to adjust based on your requirements.
+you may need to adjust based on your requirements.
 
 In terms of "desktop environments", whatever that means, I've again tried to
 eliminate bloat. To me (we all have opinions), these "environments" represent
@@ -119,7 +119,7 @@ than other popular browsers. I've tried a handful of minimal browsers
 including [Midori](https://astian.org/en/midori-browser),
 [qutebrowser](https://www.qutebrowser.org),
 and [surf](https://surf.suckless.org)
-but been unimpressed with performance or features. If you haven't,
+but been unimpressed with performance and features. If you haven't,
 give these a spin and decide for yourself.
 
 I've come to the conclusion the modern web is bloat, and requires a bloated
