@@ -1,4 +1,4 @@
-# Arch Bootstrap
+# Opinionated Arch Install Helper
 
 NOTE: The [official guide](https://wiki.archlinux.org/index.php/installation_guide)
 is authoritative. If something here doesn't work check that. Feel free to open a
@@ -100,9 +100,9 @@ will symlink configs for bspwm, sxhkd, polybar, etc. into home.
 - Enable sshd (might not want on all machines)
 - Setup SSH config/keys (private data)
 - Install locally built bins
-    - cw
-    - lf
-    - ...
+  - cw
+  - lf
+  - ...
 
 ## TODO
 
