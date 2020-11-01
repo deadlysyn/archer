@@ -19,18 +19,17 @@ is authoritative. If something here doesn't work, fall back to that. Feel free
 to open a PR if something can be better. Also check [References](references).
 **Read the scripts before running!**
 
-After installing Arch a handful of times I decided to take some time and
-automate more of the process. The great thing about Arch aside from having
-complete control is the wiki. It's a wonderful resource, but can be 
-overwhelming. For someone a bit ADHD/dyslexic like me I end up following
+After installing Arch a handful of times I decided to automate more of
+the process. The great thing about Arch aside from having complete control
+is the wiki. It's a wonderful resource, but can be overwhelming. I end up following
 2^32 links and have 100 tabs open just to get through a basic install
 (sincere thanks to all doc writers, this is a personal problem not you).
 
 ## What
 
-This guide attempts to condense the Arch install guide and several pages
-it links to so my typical install is easier to follow top down with.
-This may turn into a more full featured script that supports additional
+This project attempts to condense the Arch install guide and several pages
+it links to so my typical install is easier to follow top down.
+This could become more full featured and support additional
 options (PRs welcome), but as a starting point I just semi-automated my
 typical install.
 
@@ -46,22 +45,20 @@ I wasn't aiming for "the most minimal possible", since the ultimate
 goal was consistent usability. Some choices could undoubtedly be replaced
 with slimmer alternatives or eliminated entirely. The base install, for
 example, includes things like an image viewer and PDF reader. I found
-having these available to be helpful in normal life. To minimize impact,
+having these available helpful in normal life. To minimize impact,
 I chose the leanest alternatives I could find with reasonable functionality
 ([sxiv](https://github.com/muennich/sxiv) and
 [zathura](https://pwmt.org/projects/zathura) in these specific cases).
-You might have different chocies, and these can be swapped out easily by editing
-manifests before install or hand tweaking later.
+You might have different chocies, and these can be swapped out easily.
 
-In larger things I only wanted some places (desktop vs laptop), I split
+For larger things I only wanted some places (desktop vs laptop), I split
 out separate manifests so they can be selectively included. Again you 
-are free to have different choices and even I find myself moving more "base"
-things into "bloat" over time. Examples in this category are
+are free to have different choices, and even I find myself moving more
+of "base" into "bloat" over time. Examples in this category are
 [LibreOffice](https://www.libreoffice.org), [gimp](https://www.gimp.org),
 and even [picom](https://wiki.archlinux.org/index.php/Picom). While I
 typically pull these in, they are often hundreds of megabytes with
-a plethora of dependencies so I wanted it to be easy to exclude them (e.g.
-just use base vs base + bloat manifests).
+a plethora of dependencies so I wanted it to be easy to exclude them.
 
 ## Choices
 
@@ -76,6 +73,12 @@ be a hard choice, but it is well documented and capable. It integrates
 nicely with
 [systemd-netword](https://wiki.archlinux.org/index.php/Systemd-networkd) and
 [systemd-resolved](https://wiki.archlinux.org/index.php/Systemd-resolved).
+This also meant dropping [nm-applet](https://aur.archlinux.org/packages/network-manager-applet-git)
+which served me well for years but is a bit bloated. `iwctl` can
+be used to manage wireless connections. I'm working on a dmenu-based
+network picker for more WM-integrated UX, without the need to
+run a system tray or pull in another dependency (dmenu is also used as
+a run menu and general prompter).
 
 Speaking of [systemd])(https://wiki.archlinux.org/index.php/Systemd), I
 was never a fan. I didn't object because it wasn't a solid init system,
