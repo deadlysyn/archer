@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# Add post-install non-root user setup steps here.
 
 set -eu
 
