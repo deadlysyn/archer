@@ -15,7 +15,7 @@ set -eu
 HOSTNAME="$1"
 shift 1
 MANIFESTS=$@
-MANIFEST_URL="https://raw.githubusercontent.com/deadlysyn/dotfiles/master/scripts/manifests"
+MANIFEST_URL="https://raw.githubusercontent.com/deadlysyn/arch-helper/main/manifests"
 PM="pacman --noconfirm --noprogressbar -Sq"
 TMPDIR=$(mktemp -d)
 trap "rm -rf ${TMPDIR}" QUIT EXIT INT
