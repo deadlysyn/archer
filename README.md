@@ -80,7 +80,7 @@ network picker for more WM-integrated UX, without the need to
 run a system tray or pull in another dependency (dmenu is also used as
 a run menu and general prompter).
 
-Speaking of [systemd])(https://wiki.archlinux.org/index.php/Systemd), I
+Speaking of [systemd](https://wiki.archlinux.org/index.php/Systemd), I
 was never a fan. I didn't object because it wasn't a solid init system,
 or because SysV init was good enough (I grew up on SysV init, but everything
 needs to evolve over time). My objection was softer, in that systemd's
