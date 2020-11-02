@@ -247,9 +247,13 @@ machine to machine or user to user.
 
 ## TODO
 
+- Fix dmenu
+- Look at terminal alternatives
+- Fix and better integrate screen config
 - Consider condensing ABS entries using groups and meta packages
 - Prune unnecessary xorg components
 - Better automation of yay installs
+- Move all manual compilations to packages (create or fix packages where necessary)
 
 ## References
 
