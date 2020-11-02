@@ -38,7 +38,7 @@ as well or serve as a starting point for automating your own preferences.
 ## Thought Process
 
 My goal was consistency (without needing to remember what utilities to
-track down on each install) and a "minimal but not too minimal" install.
+track down each time) and a "minimal but not too minimal" install.
 I also wanted to be able to run the same install process on an old
 Thinkpad or a modern desktop and get reasonably adjusted defaults,
 whether Intel- or AMD-based.
@@ -235,7 +235,7 @@ machine to machine or user to user.
 - Install locally built tools (I've had better luck with local builds for these)
   - [awscli](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html)
   - [cw](https://github.com/lucagrulla/cw)
-- spotifyd/sptify-tui are installed but not configured or enabled. Edit `~/.config/spotifyd/spotifyd.conf` and `systemctl --user enable spotifyd`.
+- spotifyd/spotify-tui are installed but not configured or enabled. Edit `~/.config/spotifyd/spotifyd.conf` and `systemctl --user enable spotifyd`.
 
 ## TODO
 
