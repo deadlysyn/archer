@@ -134,7 +134,7 @@ due to monetization aspects, but you can disable everything unsavory
 eliminate the need for some plugins.
 
 In the end I decided to
-[benchmark a handful of popular browsers](#tbd)
+[benchmark a handful of popular browsers](https://blog.devopsdreams.io/browser-comparison)
 on my hardware and let the numbers decide. I encourage you to do
 the same. My number-driven choices are embedded in default configuration
 when using this install process, but can be easily swapped out.
