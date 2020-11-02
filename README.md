@@ -53,7 +53,7 @@ I chose the leanest alternatives I could find with reasonable functionality
 You might have different chocies, and these can be swapped out easily.
 
 For larger things I only wanted some places (desktop vs laptop), I split
-out separate manifests so they can be selectively included. Again you 
+out separate manifests so they can be selectively included. Again you
 are free to have different choices, and even I find myself moving more
 of "base" into "bloat" over time. Examples in this category are
 [LibreOffice](https://www.libreoffice.org), [gimp](https://www.gimp.org),
@@ -234,6 +234,7 @@ machine to machine or user to user.
 - Install locally built tools (I've had better luck with local builds for these)
   - [awscli](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html)
   - [cw](https://github.com/lucagrulla/cw)
+  - [docker-credential-helper](https://github.com/docker/docker-credential-helpers)
 - spotifyd/spotify-tui are installed but not configured or enabled. Edit `~/.config/spotifyd/spotifyd.conf` and `systemctl --user enable spotifyd`.
 
 ## TODO
