@@ -2,12 +2,13 @@
 
 - [Why](#why)
 - [What](#what)
-- [Thought Process](#thought-process)
-- [Choices](#choices)
-- [Bootstrapping](#bootstrapping)
-- [Finalization](#finalization)
-- [Configuration](#configuration)
-- [Manual Steps](#manual-steps)
+  - [Thought Process](#thought-process)
+  - [Choices](#choices)
+- [Installing](#installing)
+  - [Bootstrapping](#bootstrapping)
+  - [Finalization](#finalization)
+  - [Configuration](#configuration)
+  - [Manual Steps](#manual-steps)
 - [TODO](#todo)
 - [References](#references)
 
@@ -34,12 +35,7 @@ options (PRs welcome), but as a starting point I just semi-automated my
 typical install. Depending on your needs, this might save you time
 as well or serve as a starting point for automating your own preferences.
 
-This is still in infancy, with the need for a lot of refinement, but
-in current form it greatly reduces total install time for me and results
-in 548 (expect this to be further trimmed) packages consuming ~8.4GB on
-disk using only 147MB of RAM on boot.
-
-## Thought Process
+### Thought Process
 
 My goal was consistency (without needing to remember what utilities to
 track down each time) and a "minimal but not too minimal" install.
@@ -66,7 +62,7 @@ and even [picom](https://wiki.archlinux.org/index.php/Picom). While I
 typically pull these in, they are often hundreds of megabytes with
 a plethora of dependencies so I wanted it to be easy to exclude them.
 
-## Choices
+### Choices
 
 For any who care, these are some choices I've made and reasoning behind them.
 These are strong opinions weakly held, so I reserve the right to change my mind.
@@ -161,7 +157,14 @@ for [pulsemixer](https://github.com/GeorgeFilipkin/pulsemixer).
 After initial adjustment you end up with the same or more functionality
 that works equally well on hardware of any age.
 
-## Bootstrapping
+## Installing
+
+This is still in infancy, with the need for a lot of refinement, but
+in current form it greatly reduces total install time for me and results
+in 548 (expect this to be further trimmed) packages consuming ~8.4GB on
+disk using only 147MB of RAM on boot.
+
+### Bootstrapping
 
 - [Download ISO](https://www.archlinux.org/download) and write to USB
   - `lsblk` to determine right `/dev/sdX`
@@ -206,7 +209,7 @@ that works equally well on hardware of any age.
   - manifests are ABS package lists ([files with abs suffix](https://github.com/deadlysyn/arch-helper/tree/main/manifests))
 - Reboot (make sure boot manager works)
 
-## Finalization
+### Finalization
 
 Login as root, then configure a local user and get AUR packages installed.
 
@@ -216,7 +219,7 @@ Login as root, then configure a local user and get AUR packages installed.
 - `cd ~/src/arch-helper;./yaystrap <manifests...>`
   - manifests are AUR package lists ([files with aur suffix](https://github.com/deadlysyn/arch-helper/tree/main/manifests))
 
-## Configuration
+### Configuration
 
 Now we've got a base install with some useful pacakges, working network, and
 a local user. Time to tweak our environment and start X. The install script
@@ -227,7 +230,7 @@ will symlink configs for bspwm, sxhkd, polybar, etc. into home.
   - `cd dotfiles/linux`
   - `../install <packages...>`
 
-## Manual Steps
+### Manual Steps
 
 These items are currently left as manual since they can vary from
 machine to machine or user to user.
