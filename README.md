@@ -4,12 +4,11 @@
 - [What](#what)
 - [Thought Process](#thought-process)
 - [Choices](#choices)
-- [Install](#install)
-  - [Bootstrapping](#bootstrapping)
-  - [Finalization](#finalization)
-  - [Configuration](#configuration)
-  - [Manual Steps](#manual-steps)
-  - [TODO](#todo)
+- [Bootstrapping](#bootstrapping)
+- [Finalization](#finalization)
+- [Configuration](#configuration)
+- [Manual Steps](#manual-steps)
+- [TODO](#todo)
 - [References](#references)
 
 ## Why
