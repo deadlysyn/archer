@@ -34,6 +34,11 @@ options (PRs welcome), but as a starting point I just semi-automated my
 typical install. Depending on your needs, this might save you time
 as well or serve as a starting point for automating your own preferences.
 
+This is still in infancy, with the need for a lot of refinement, but
+in current form it greatly reduces total install time for me and results
+in 548 (expect this to be further trimmed) packages consuming ~8.4GB on
+disk using only 147MB of RAM on boot.
+
 ## Thought Process
 
 My goal was consistency (without needing to remember what utilities to
