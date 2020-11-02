@@ -386,7 +386,6 @@ sed
 shadow
 shared-mime-info
 slang
-slock
 sound-theme-freedesktop
 speexdsp
 sqlite
@@ -492,6 +491,7 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 xorgproto
+xsecurelock
 xss-lock
 xxhash
 xz
