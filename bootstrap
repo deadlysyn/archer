@@ -1,8 +1,8 @@
 #!/bin/sh
 #
-# Run this as root via curl before inside arch-chroot.
+# Run this as root via curl inside arch-chroot.
 # Goal is to fully automate install of ABS packages.
-# Needs (short) hostname to configure networking.
+# Needs hostname to configure networking.
 #
 # ./bootstrap <hostname> <manifests...>
 #
@@ -11,6 +11,12 @@
 # ./bootstrap monolith base bloat management
 
 set -eu
+
+# Customize these
+MIRROR_COUNTRY="US"
+TZ="America/New_York"
+LOCALE="en_US.UTF-8"
+SSD="true" # enable fstrim
 
 HOSTNAME="$1"
 shift 1
@@ -25,7 +31,7 @@ umask 022
 echo ":: Updating mirrorlist"
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 ${PM} pacman-contrib
-curl -s "https://www.archlinux.org/mirrorlist/?country=US&protocol=https&use_mirror_status=on" \
+curl -s "https://www.archlinux.org/mirrorlist/?country=${MIRROR_COUNTRY}&protocol=https&use_mirror_status=on" \
   | sed -e 's/^#Server/Server/' -e '/^#/d' \
   | rankmirrors -n 5 - >/etc/pacman.d/mirrorlist
 
@@ -52,13 +58,13 @@ if grep AMD /proc/cpuinfo >/dev/null 2>&1; then
 fi
 
 echo ":: Setting TZ"
-ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime
 hwclock --systohc
 
 echo ":: Setting locale"
-sed -i'' 's/^#\(en_US.UTF-8 UTF-8\)/\1/' /etc/locale.gen
+sed -i'' "s/^#\(${LOCALE}.*\)/\1/" /etc/locale.gen
 locale-gen
-echo "LANG=en_US.UTF-8" > /etc/locale.conf
+echo "LANG=${LOCALE}" > /etc/locale.conf
 
 echo ":: Configuring network"
 echo "$HOSTNAME" > /etc/hostname
@@ -105,8 +111,10 @@ else
 fi
 
 # https://wiki.archlinux.org/index.php/Solid_state_drive#Periodic_TRIM
-echo ":: Enabling fstrim"
-systemctl enable fstrim.timer
+if [ "$SSD" == "true" ]; then
+  echo ":: Enabling fstrim"
+  systemctl enable fstrim.timer
+fi
 
 cat <<EOF
 =================================================================
