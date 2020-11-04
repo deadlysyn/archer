@@ -1,4 +1,13 @@
 ansible
 aws-vault
+jq
+logrotate
+nmap
+openbsd-netcat
+openldap
 openvpn
+postgresql
+rsync
+tcpdump
 terraform
+tmux
