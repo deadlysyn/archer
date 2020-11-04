@@ -1,5 +1,6 @@
 ansible
 aws-vault
+bind
 jq
 logrotate
 nmap
