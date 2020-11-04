@@ -83,6 +83,7 @@ EOF
 systemctl enable iwd.service
 systemctl enable systemd-resolved
 systemctl enable ufw
+systemctl enable systemd-timesyncd
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 # https://wiki.archlinux.org/index.php/Systemd-boot#Installation
