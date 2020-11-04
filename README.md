@@ -238,22 +238,23 @@ machine to machine or user to user.
 - [UFW](https://wiki.archlinux.org/index.php/Uncomplicated_Firewall) is enabled but nothing allowed. `ufw allow 22/tcp`, etc as needed.
 - Enable sshd if you want remote SSH connectivity. Only allow key-based auth.
 - Setup SSH config/keys (private data)
-- Browser plugins (mostly handled by sync)
+- Browser plugins (sign-in to sync, adjust settings as needed)
 - Install locally built tools (I've had better luck with local builds for these)
   - [awscli](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html)
+    - Setup `~/.aws/*`
+    - `aws-vault add <profile>`
   - [cw](https://github.com/lucagrulla/cw)
   - [docker-credential-helper](https://github.com/docker/docker-credential-helpers)
-- spotifyd/spotify-tui are installed but not configured or enabled. Edit `~/.config/spotifyd/spotifyd.conf` and `systemctl --user enable spotifyd`.
+- If spotifyd/spotify-tui are installed, edit `~/.config/spotifyd/spotifyd.conf` and `systemctl --user enable spotifyd`.
 
 ## TODO
 
 - Fix dmenu
-- Look at terminal alternatives
-- Fix and better integrate screen config
-- Consider condensing ABS entries using groups and meta packages
-- Prune unnecessary xorg components
+- Look at terminal alternatives / personalize st
+- Fix and better integrate tmux config
 - Better automation of yay installs
 - Move all manual compilations to packages (create or fix packages where necessary)
+- Pull in / tune laptop tools (power management, backlight oddities)
 
 ## References
 
