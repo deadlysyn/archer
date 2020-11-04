@@ -448,7 +448,6 @@ xorg-fonts-encodings
 xorg-mkfontscale
 xorg-server
 xorg-server-common
-xorg-server-devel
 xorg-setxkbmap
 xorg-xauth
 xorg-xbacklight
