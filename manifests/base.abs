@@ -378,8 +378,8 @@ qt5-base
 qt5-svg
 readline
 rest
+ripgrep
 rhash
-rsync
 rtkit
 run-parts
 sed
@@ -400,7 +400,6 @@ systemd-sysvcompat
 tar
 tdb
 texinfo
-the_silver_searcher
 tree
 tslib
 ttf-joypixels
