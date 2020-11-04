@@ -20,7 +20,6 @@ avahi
 base
 bash
 bc
-bind
 binutils
 bison
 bluez
@@ -48,7 +47,6 @@ dconf
 desktop-file-utils
 device-mapper
 diffutils
-dmenu
 dnssec-anchors
 double-conversion
 dunst
