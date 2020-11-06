@@ -249,8 +249,7 @@ machine to machine or user to user.
 
 ## TODO
 
-- Fix dmenu
-- Look at terminal alternatives / personalize st
+- Better organize manifests
 - Fix and better integrate tmux config
 - Better automation of yay installs
 - Move all manual compilations to packages (create or fix packages where necessary)
