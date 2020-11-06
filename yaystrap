@@ -70,7 +70,7 @@ lock-never
 keyserver-options timeout=10
 keyserver-options import-clean
 keyserver-options no-self-sigs-only
-keyserver https://pgp.mit.edu
+keyserver hkp://ipv4.pool.sks-keyservers.net:11371
 EOF
 
 for m in $MANIFESTS; do
