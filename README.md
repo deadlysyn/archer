@@ -208,6 +208,11 @@ disk using only 147MB of RAM on boot.
   - `curl -s https://raw.githubusercontent.com/deadlysyn/arch-helper/main/bootstrap | bash -s <manifests...>`
   - manifests are ABS package lists ([files with abs suffix](https://github.com/deadlysyn/arch-helper/tree/main/manifests))
 - Reboot (make sure boot manager works)
+- Pair bluetooth devices
+  - `bluetoothctl`
+  - `power on`
+  - `scan on`
+  - `pair XX:YY:ZZ...`
 
 ### Finalization
 
