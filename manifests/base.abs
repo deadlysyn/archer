@@ -412,7 +412,6 @@ unzip
 usbutils
 util-linux
 util-linux-libs
-vulkan-icd-loader
 wayland
 wayland-protocols
 webrtc-audio-processing
@@ -432,10 +431,10 @@ xdg-utils
 xdo
 xdotool
 xf86-input-libinput
+xf86-video-amdgpu
 xf86-video-intel
 xf86-video-vesa
 xkeyboard-config
-#xorg-bdftopcf
 xorg-docs
 xorg-font-util
 xorg-fonts-100dpi
@@ -443,7 +442,6 @@ xorg-fonts-75dpi
 xorg-fonts-alias-100dpi
 xorg-fonts-alias-75dpi
 xorg-fonts-encodings
-#xorg-iceauth
 xorg-mkfontscale
 xorg-server
 xorg-server-common
