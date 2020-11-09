@@ -260,6 +260,7 @@ libxxf86vm
 libyaml
 licenses
 linux
+linux-headers
 linux-api-headers
 linux-firmware
 lirc
