@@ -38,6 +38,7 @@ cmake
 colord
 confuse
 coreutils
+cronie
 cryptsetup
 curl
 dash
