@@ -84,12 +84,7 @@ disk using only 147MB of RAM on boot.
   - `arch-chroot /mnt`
   - `curl -s https://raw.githubusercontent.com/deadlysyn/archer/main/bootstrap | bash -s <manifests...>`
   - manifests are ABS package lists ([files with abs suffix](https://github.com/deadlysyn/archer/tree/main/manifests))
-- Reboot (make sure boot manager works)
-- Pair bluetooth devices
-  - `bluetoothctl`
-  - `power on`
-  - `scan on`
-  - `pair XX:YY:ZZ...`
+- Reboot (make sure boot manager works; if not reboot from USB and repair)
 
 ### Post Install
 
@@ -111,23 +106,41 @@ will symlink configs for bspwm, sxhkd, polybar, etc. into home.
   - `git clone git@github.com:deadlysyn/dotfiles.git`
   - `cd dotfiles/linux`
   - `../install <packages...>`
+- `startx` and add desired manual tuning
 
 ### Manual Steps
 
 These items are currently left as manual since they can vary from
 machine to machine or user to user.
 
-- [UFW](https://wiki.archlinux.org/index.php/Uncomplicated_Firewall) is enabled but nothing allowed. `ufw allow 22/tcp`, etc as needed.
-- Enable sshd if you want remote SSH connectivity. Only allow key-based auth.
-- Setup SSH config/keys (private data)
+- Pair bluetooth devices
+  - `systemctl enable bluetooth`
+  - `systemctl start bluetooth`
+  - `bluetoothctl`
+  - `power on`
+  - `scan on`
+  - `pair XX:YY:ZZ...`
+- Run `lxappearance` to select theme, fonts, etc.
+- Tweak font settings for machine
+  - Link `/etc/fonts/conf.avail/xx-*.conf` into `~/.config/fontconfig/conf.d`
+  - Varies by screen (e.g. RGB vs BGR)
+- [UFW](https://wiki.archlinux.org/index.php/Uncomplicated_Firewall) is enabled but nothing allowed; open ports as needed.
+  -`ufw allow 22/tcp` (ssh)
+  -`ufw allow 24800/tcp` (synergy)
+- Drop Synergy license in `~/.config/Synergy/license` if this is a server
+- Enable sshd if you want remote SSH connectivity.
+  - Default Arch sshd_config allows key auth and disables root password logins
+  - `systemctl enable sshd`
+  - `systemctl start sshd`
+- Setup SSH config/keys (copy from another host or backup)
 - Browser plugins (sign-in to sync, adjust settings as needed)
+- If spotifyd/spotify-tui are installed, edit `~/.config/spotifyd/spotifyd.conf` and `systemctl --user enable spotifyd`.
 - Install locally built tools (I've had better luck with local builds for these)
   - [awscli](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html)
     - Setup `~/.aws/*`
     - `aws-vault add <profile>`
   - [cw](https://github.com/lucagrulla/cw)
   - [docker-credential-helper](https://github.com/docker/docker-credential-helpers)
-- If spotifyd/spotify-tui are installed, edit `~/.config/spotifyd/spotifyd.conf` and `systemctl --user enable spotifyd`.
 
 ## TODO
 
