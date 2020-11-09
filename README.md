@@ -82,7 +82,7 @@ disk using only 147MB of RAM on boot.
   - `genfstab -U /mnt >> /mnt/etc/fstab`
 - Bootstrap
   - `arch-chroot /mnt`
-  - `curl -s https://raw.githubusercontent.com/deadlysyn/archer/main/bootstrap | bash -s <manifests...>`
+  - `curl -s https://raw.githubusercontent.com/deadlysyn/archer/main/bootstrap | bash -s <hostname> <manifests...>`
   - manifests are ABS package lists ([files with abs suffix](https://github.com/deadlysyn/archer/tree/main/manifests))
 - Reboot (make sure boot manager works; if not reboot from USB and repair)
 
