@@ -125,8 +125,8 @@ machine to machine or user to user.
   - Link `/etc/fonts/conf.avail/xx-*.conf` into `~/.config/fontconfig/conf.d`
   - Varies by screen (e.g. RGB vs BGR)
 - [UFW](https://wiki.archlinux.org/index.php/Uncomplicated_Firewall) is enabled but nothing allowed; open ports as needed.
-  -`ufw allow 22/tcp` (ssh)
-  -`ufw allow 24800/tcp` (synergy)
+  - `ufw allow 22/tcp` (ssh)
+  - `ufw allow 24800/tcp` (synergy)
 - Drop Synergy license in `~/.config/Synergy/license` if this is a server
 - Enable sshd if you want remote SSH connectivity.
   - Default Arch sshd_config allows key auth and disables root password logins
@@ -134,7 +134,9 @@ machine to machine or user to user.
   - `systemctl start sshd`
 - Setup SSH config/keys (copy from another host or backup)
 - Browser plugins (sign-in to sync, adjust settings as needed)
-- If spotifyd/spotify-tui are installed, edit `~/.config/spotifyd/spotifyd.conf` and `systemctl --user enable spotifyd`.
+- If spotifyd/spotify-tui are installed...
+  - Edit `~/.config/spotifyd/spotifyd.conf`
+  - `systemctl --user enable spotifyd`
 - Install locally built tools (I've had better luck with local builds for these)
   - [awscli](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html)
     - Setup `~/.aws/*`
