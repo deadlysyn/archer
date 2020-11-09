@@ -10,8 +10,6 @@
 #
 # ./bootstrap monolith base bloat management
 
-set -eu
-
 # Customize these
 MIRROR_COUNTRY="US"
 TZ="America/New_York"
