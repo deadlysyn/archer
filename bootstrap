@@ -84,6 +84,7 @@ systemctl enable ufw
 systemctl enable systemd-timesyncd
 # required by timeshift...
 systemctl enable cronie
+# Does this work in chroot?
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 # https://wiki.archlinux.org/index.php/Systemd-boot#Installation
@@ -120,7 +121,7 @@ fi
 cat <<EOF
 =================================================================
  Set root password then reboot...
- If boot fails, just chroot from USB to fix as needed.
+ If boot fails, chroot from USB to fix as needed.
 =================================================================
 EOF
 
