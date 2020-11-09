@@ -84,6 +84,8 @@ systemctl enable iwd.service
 systemctl enable systemd-resolved
 systemctl enable ufw
 systemctl enable systemd-timesyncd
+# required by timeshift...
+systemctl enable cronie
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 # https://wiki.archlinux.org/index.php/Systemd-boot#Installation
