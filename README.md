@@ -139,15 +139,14 @@ machine to machine or user to user.
   - Add non-root user to `docker` group
   - `systemctl enable docker`
   - `systemctl start docker`
+- Install [docker-credential-helper](https://github.com/docker/docker-credential-helpers)
+- Setup `aws-cli`
+  - Copy `~/.aws/*` from another machine/backup
+  - `aws-vault add <profile>`
+- Install [cw](https://github.com/lucagrulla/cw)
 - If spotifyd/spotify-tui are installed...
   - Edit `~/.config/spotifyd/spotifyd.conf`
   - `systemctl --user enable spotifyd`
-- Install locally built tools (I've had better luck with local builds for these)
-  - [awscli](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html)
-    - Setup `~/.aws/*`
-    - `aws-vault add <profile>`
-  - [cw](https://github.com/lucagrulla/cw)
-  - [docker-credential-helper](https://github.com/docker/docker-credential-helpers)
 
 ## TODO
 
