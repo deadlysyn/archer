@@ -30,7 +30,7 @@ This project attempts to condense the official guide so my typical install
 is faster. This could become more full featured and support additional
 options (PRs welcome), but as a starting point I semi-automated my
 personal preferences. Depending on your needs, this might save you time
-or serve as a starting point for your own automatoin.
+or serve as a starting point for your own automation.
 See [CHOICES.md](https://github.com/deadlysyn/archer/blob/main/CHOICES.md)
 for thought process and opinions.
 
