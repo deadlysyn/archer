@@ -120,20 +120,25 @@ machine to machine or user to user.
   - `power on`
   - `scan on`
   - `pair XX:YY:ZZ...`
+- Browser plugins (sign-in to sync, adjust settings as needed)
 - Run `lxappearance` to select theme, fonts, etc.
+- Drop Synergy license in `~/.config/Synergy/license` if this is a server
+- Install go, nodejs (and/or nvm), etc.
 - Tweak font settings for machine
   - Link `/etc/fonts/conf.avail/xx-*.conf` into `~/.config/fontconfig/conf.d`
   - Varies by screen (e.g. RGB vs BGR)
 - [UFW](https://wiki.archlinux.org/index.php/Uncomplicated_Firewall) is enabled but nothing allowed; open ports as needed.
   - `ufw allow 22/tcp` (ssh)
   - `ufw allow 24800/tcp` (synergy)
-- Drop Synergy license in `~/.config/Synergy/license` if this is a server
 - Enable sshd if you want remote SSH connectivity.
   - Default Arch sshd_config allows key auth and disables root password logins
   - `systemctl enable sshd`
   - `systemctl start sshd`
 - Setup SSH config/keys (copy from another host or backup)
-- Browser plugins (sign-in to sync, adjust settings as needed)
+- Docker is isntalled via `bloat.abs`, but:
+  - Add non-root user to `docker` group
+  - `systemctl enable docker`
+  - `systemctl start docker`
 - If spotifyd/spotify-tui are installed...
   - Edit `~/.config/spotifyd/spotifyd.conf`
   - `systemctl --user enable spotifyd`
