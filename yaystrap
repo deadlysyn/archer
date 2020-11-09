@@ -4,8 +4,6 @@
 # Yay is best ran interactively. The goal of this script
 # is less hands-off automation and more about consistency.
 
-set -eu
-
 USER=$(id -un)
 MANIFESTS=$@
 
