@@ -2,25 +2,17 @@
 #
 # Add post-install non-root user setup steps here.
 
-set -eu
-
 USER="$1"
 
 echo ":: Creating non-root user"
 if ! grep "${USER}" /etc/passwd >/dev/null 2>&1; then
   useradd -m -G wheel -s /bin/zsh "${USER}"
-cat <<EOF
-=================================================================
- Enter password for ${USER}...
-=================================================================
-EOF
-  passwd "${USER}"
   sed -i'' 's/# \(%wheel ALL=(ALL) NOPASSWD: ALL\)/\1/' /etc/sudoers
 fi
 
 cat <<EOF
 =================================================================
- Login as ${USER}...
+ Set password for ${USER}, then login as them to continue...
 =================================================================
 EOF
 
