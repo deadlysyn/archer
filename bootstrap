@@ -11,7 +11,7 @@
 # ./bootstrap monolith base bloat management
 
 # Customize these
-MIRROR_COUNTRY="US"
+MIRROR_COUNTRY="US" # Also used to set regulatory domain for wifi
 TZ="America/New_York"
 LOCALE="en_US.UTF-8"
 SSD="true" # enable fstrim
@@ -84,6 +84,8 @@ systemctl enable ufw
 systemctl enable systemd-timesyncd
 # required by timeshift...
 systemctl enable cronie
+# https://wiki.archlinux.org/index.php/Network_configuration/Wireless#Respecting_the_regulatory_domain
+iw reg set US
 # Does this work in chroot?
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
