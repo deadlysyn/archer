@@ -21,38 +21,6 @@ if [ ! -d /opt/yay-git ]; then
   makepkg -si
 fi
 
-# pulling in spotifyd... edit your password later.
-mkdir -p "${HOME}/.config/spotifyd"
-chmod 700 "${HOME}/.config/spotifyd"
-cat > "${HOME}/.config/spotifyd" <<EOF
-[global]
-username = <unquoted_username_here>
-password = <unquoted_password_here>
-backend = pulseaudio
-device_name = <unquoted_short_hostname_here>
-device_type = computer
-bitrate = 320
-EOF
-mkdir -p "${HOME}/.config/systemd/user"
-cat > "${HOME}/.config/systemd/user/spotifyd.service" <<EOF
-[Unit]
-Description=A spotify playing daemon
-Documentation=https://github.com/Spotifyd/spotifyd
-Wants=sound.target
-After=sound.target
-Wants=network-online.target
-After=network-online.target
-
-[Service]
-ExecStart=/usr/bin/spotifyd --no-daemon
-Restart=always
-RestartSec=12
-
-[Install]
-WantedBy=default.target
-EOF
-systemctl --user enable spotifyd
-
 # Populate for future use...
 mkdir -p "${HOME}/.gnupg"
 chmod 700 "${HOME}/.gnupg"
