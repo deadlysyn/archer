@@ -85,7 +85,7 @@ systemctl enable systemd-timesyncd
 # required by timeshift...
 systemctl enable cronie
 # https://wiki.archlinux.org/index.php/Network_configuration/Wireless#Respecting_the_regulatory_domain
-iw reg set US
+iw reg set "${MIRROR_COUNTRY}"
 # Does this work in chroot?
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
