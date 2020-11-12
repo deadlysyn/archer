@@ -1,4 +1,6 @@
 ansible
+python-botocore
+python-boto3
 aws-vault
 bind
 jq
