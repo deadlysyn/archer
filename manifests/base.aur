@@ -1,4 +1,6 @@
 aws-cli-v2-bin
+chromium-vaapi
+chromium-widevine
 brother-hll8360cdw-cups-bin
 devour
 direnv
@@ -12,7 +14,4 @@ polybar
 pulseaudio-ctl
 st-luke-git
 timeshift
-vivaldi
-vivaldi-ffmpeg-codecs
-vivaldi-widevine
 vscodium-bin

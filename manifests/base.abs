@@ -225,6 +225,7 @@ libusb-compat
 libuv
 libva
 libva-intel-driver
+libva-mesa-driver
 libvorbis
 libvterm
 libwacom
