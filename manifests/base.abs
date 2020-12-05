@@ -33,6 +33,7 @@ ca-certificates-mozilla
 ca-certificates-utils
 cairo
 cantarell-fonts
+chromium
 chrony
 cmake
 colord
