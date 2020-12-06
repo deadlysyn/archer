@@ -39,6 +39,7 @@ cmake
 colord
 confuse
 coreutils
+crda
 cronie
 cryptsetup
 curl
